@@ -9,12 +9,13 @@ import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.media.Schema;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
+import jakarta.validation.constraints.NotBlank;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
@@ -46,8 +47,8 @@ public class PokemonController {
                     responseCode = "500", description = "internal server error", content = @Content
             )
     })
-    @GetMapping("/{name}")
-    ResponseEntity<PokemonResponse> getByName(@PathVariable final String name) {
+    @GetMapping
+    ResponseEntity<PokemonResponse> getByName(@RequestParam @NotBlank final String name) {
         log.info("Fetching pokemon by name.");
         log.debug("Fetching pokemon by name [{}].", name);
 
