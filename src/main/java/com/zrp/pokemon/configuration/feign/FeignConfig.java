@@ -1,4 +1,4 @@
-package com.zrp.pokemon.configuration;
+package com.zrp.pokemon.configuration.feign;
 
 import com.zrp.pokemon.adapters.in.exception.CustomErrorDecoder;
 import feign.codec.ErrorDecoder;

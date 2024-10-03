@@ -4,6 +4,11 @@ import com.zrp.pokemon.adapters.in.domain.PokemonDomain;
 import com.zrp.pokemon.adapters.in.mapper.IPokemonMapper;
 import com.zrp.pokemon.adapters.out.dto.PokemonResponse;
 import com.zrp.pokemon.application.ports.in.service.IGetPokemonByNameService;
+import io.swagger.v3.oas.annotations.media.ArraySchema;
+import io.swagger.v3.oas.annotations.media.Content;
+import io.swagger.v3.oas.annotations.media.Schema;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;
@@ -21,6 +26,26 @@ public class PokemonController {
     private final IPokemonMapper pokemonMapper;
     private final IGetPokemonByNameService getPokemonByNameService;
 
+    @ApiResponses(value = {
+            @ApiResponse(
+                    responseCode = "200", description = "ok",
+                    content = { @Content(mediaType = "application/json",
+                            array = @ArraySchema(schema = @Schema(implementation = PokemonResponse.class)))
+                    }),
+            @ApiResponse(
+                    responseCode = "204", description = "no content", content = @Content
+            ),
+            @ApiResponse(
+                    responseCode = "400", description = "bad request",
+                    content = @Content
+            ),
+            @ApiResponse(
+                    responseCode = "404", description = "not found", content = @Content
+            ),
+            @ApiResponse(
+                    responseCode = "500", description = "internal server error", content = @Content
+            )
+    })
     @GetMapping("/{name}")
     ResponseEntity<PokemonResponse> getByName(@PathVariable final String name) {
         log.info("Fetching pokemon by name.");

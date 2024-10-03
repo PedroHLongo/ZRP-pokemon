@@ -38,6 +38,7 @@
 		<org.jacoco.coverage.minimum>0</org.jacoco.coverage.minimum>
 		<pitest-maven.version>1.15.8</pitest-maven.version>
 		<pitest-junit5.version>1.2.1</pitest-junit5.version>
+		<open-api.version>2.6.0</open-api.version>
 		<!--Sonar-->
 		<sonar.exclusions>src/test/**/*</sonar.exclusions>
 		<sonar.coverage.exclusions>src/test/**/*,**/configuration/**,**/exception/**,**/domain/**,**/dto/**,**/entity/**,**/mapper/**</sonar.coverage.exclusions>
@@ -86,6 +87,11 @@
 			<groupId>org.jeasy</groupId>
 			<artifactId>easy-random-core</artifactId>
 			<version>${easy-random.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springdoc</groupId>
+			<artifactId>springdoc-openapi-starter-webmvc-ui</artifactId>
+			<version>${open-api.version}</version>
 		</dependency>
 	</dependencies>
 

@@ -13,6 +13,8 @@ docker build -t pokemon_api .
 docker run -p 8080:8080 pokemon_api
 ```
 
+- After running the docker container, you can access the swagger UI [here](http://localhost:8080/swagger-ui/index.html)
+
 # Running sonarqube
 
 - To run the sonarqube and check de coverage + mutations, you'll also need to have docker installed on your machine

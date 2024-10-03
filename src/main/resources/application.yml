@@ -1,0 +1,14 @@
+spring:
+  application:
+    name: pokemon
+
+open-api:
+  server:
+    url: "http://localhost:8080"
+    description: "Development"
+  contact:
+    name: "Pedro"
+    email: "phenriquelongo@gmail.com"
+  information:
+    title: "ZRP live coding test"
+    version: "1.0"
